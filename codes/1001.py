@@ -7,4 +7,5 @@ __author__ = 'Sejune Cheon'
 # 첫째 줄에 A-B를 출력한다.
 
 a, b = map(int, input().split())
+a = a//2
 print(a-b)
