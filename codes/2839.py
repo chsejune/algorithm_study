@@ -25,3 +25,50 @@ elif r5 !=0: # 나머지가 0이 아니면
         print('{}'.format(d5+d3)) # 몫 출력
     else:
         print('{}'.format(-1)) # -1 출력
+
+
+## init count
+d5_count = kg//5
+
+d3_count = (kg%5)//3
+
+if (5*d5_count+3*d3_count)==kg:
+    print(d5_count+d3_count)
+else:
+    d5_count-=1
+    d3_count = (kg-5*d5_count)//3
+
+
+
+kg = int(input())
+
+
+kg = 4
+
+d5_count = kg//5
+
+d3_count = (kg%5)//3
+
+# while (5*d5_count+3*d3_count)!=kg:
+flag=True
+while flag == True:
+    if d5_count!=0: d5_count -= 1
+    d3_count = (kg - 5 * d5_count) // 3
+    if (5*d5_count+3*d3_count)==kg:
+        print(d5_count+d3_count)
+        flag=False
+    elif d5_count==0 & d3_count%3!=0:
+        print(-1)
+        flag=False
+
+
+
+
+def go(N):
+    if (5-(N%5))%2 == 0:
+        b = (5-(N%5))/2
+        a = (N-3*b)/5
+    else:
+        b = (10-(N%5))/2
+        a = (N-3*b-5)/5
+    return a,b
