@@ -9,41 +9,41 @@ __author__ = 'Sejune Cheon'
 
 상근이가 배달하는 봉지의 최소 개수를 출력한다. 만약, 정확하게 N킬로그램을 만들 수 없다면 -1을 출력한다.
 """
+#
+# # 입출력
+# kg = int(input())
+#
+# d5 = kg//5 # 몫 저장
+# r5 = kg%5 # 나머지 저장
+#
+# if r5==0: # 나머지가 0 이면 몫 출력
+#     print('{}'.format(d5))
+# elif r5 !=0: # 나머지가 0이 아니면
+#     d3 = r5//3 # 몫 저장
+#     r3 = r5%3 # 나머지 저장
+#     if r3==0: # 나머지가 0이면
+#         print('{}'.format(d5+d3)) # 몫 출력
+#     else:
+#         print('{}'.format(-1)) # -1 출력
+#
+#
+# ## init count
+# d5_count = kg//5
+#
+# d3_count = (kg%5)//3
+#
+# if (5*d5_count+3*d3_count)==kg:
+#     print(d5_count+d3_count)
+# else:
+#     d5_count-=1
+#     d3_count = (kg-5*d5_count)//3
+#
+#
 
-# 입출력
 kg = int(input())
 
-d5 = kg//5 # 몫 저장
-r5 = kg%5 # 나머지 저장
 
-if r5==0: # 나머지가 0 이면 몫 출력
-    print('{}'.format(d5))
-elif r5 !=0: # 나머지가 0이 아니면
-    d3 = r5//3 # 몫 저장
-    r3 = r5%3 # 나머지 저장
-    if r3==0: # 나머지가 0이면
-        print('{}'.format(d5+d3)) # 몫 출력
-    else:
-        print('{}'.format(-1)) # -1 출력
-
-
-## init count
-d5_count = kg//5
-
-d3_count = (kg%5)//3
-
-if (5*d5_count+3*d3_count)==kg:
-    print(d5_count+d3_count)
-else:
-    d5_count-=1
-    d3_count = (kg-5*d5_count)//3
-
-
-
-kg = int(input())
-
-
-kg = 4
+kg = 18
 
 d5_count = kg//5
 
@@ -52,23 +52,37 @@ d3_count = (kg%5)//3
 # while (5*d5_count+3*d3_count)!=kg:
 flag=True
 while flag == True:
-    if d5_count!=0: d5_count -= 1
-    d3_count = (kg - 5 * d5_count) // 3
-    if (5*d5_count+3*d3_count)==kg:
-        print(d5_count+d3_count)
-        flag=False
-    elif d5_count==0 & d3_count%3!=0:
+    if d5_count<0:
         print(-1)
-        flag=False
+        break
+    elif (5*d5_count+3*d3_count)==kg:
+        print(d5_count+d3_count)
+        break
+    d5_count -= 1
+    d3_count = (kg - 5 * d5_count) // 3
 
 
 
-
-def go(N):
-    if (5-(N%5))%2 == 0:
-        b = (5-(N%5))/2
-        a = (N-3*b)/5
-    else:
-        b = (10-(N%5))/2
-        a = (N-3*b-5)/5
-    return a,b
+# def go(N):
+#     if (5-(N%5))%2 == 0:
+#         b = (5-(N%5))/2
+#         a = (N-3*b)/5
+#     else:
+#         b = (10-(N%5))/2
+#         a = (N-3*b-5)/5
+#     return a,b
+#
+#
+# def go(N):
+#     if N%5 == 0:
+#         return N/5,0
+#     if (5-(N%5))%2 == 0:
+#         b = (5-(N%5))/2
+#         a = (N-3*b)/5
+#     else:
+#         b = (10-(N%5))/2
+#         a = (N-3*b)/5
+#     if a<0:
+#         return -1
+#     else:
+#         return a+b
