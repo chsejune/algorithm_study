@@ -43,3 +43,22 @@ __author__ = 'Sejune Cheon'
 23
 
 """
+
+from itertools import combinations
+
+input_list = []
+for i in range(9):
+    input_list.append(float(input()))
+
+combination_list = list(combinations(input_list, 7))
+
+for sum_list in combination_list:
+    if sum(sum_list)==100.0:
+        for i in sorted(sum_list):
+            print(i)
+
+
+
+# print(sorted(sum_list))
+
+
